@@ -7,9 +7,9 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 /**
- * Abstract and generic implementation of {@code DataTablePager}. Provides basic
+ * Abstract and generic implementation of {@link TablePaginator}. Provides basic
  * logic to process pagination criteria and to generate a data page structure
- * compliant to DataTable plugin specs.
+ * compliant to DataTables plugin specs.
  *
  * @author David Castelletti
  *

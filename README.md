@@ -48,14 +48,14 @@ public class User {
 
 Probably you store your data in a DB, so you could use JPA or plain JDBC to query your data source and to implement ordering.
 
-### 2. Table pager
+### 2. Table paginator
 
 You also need to provide an implementation of `AbstractTablePaginator`, but this is quite simple. For example:
 
 ```java
 public class UserTablePaginator extends AbstractTablePaginator<User> {
 
-    public UserTablePager(TablePagerRepository<User> repo) {
+    public UserTablePaginator(TableRepository<User> repo) {
         super(repo);
     }
 

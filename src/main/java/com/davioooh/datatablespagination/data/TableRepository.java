@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * This interface is used to retrieve data to paginate. Classes implementing
- * {@code TablePagerRepository} should also implement filter and ordering logic.
+ * {@link TableRepository} should also implement filter and ordering logic.
  *
  * @author David Castelletti
  *

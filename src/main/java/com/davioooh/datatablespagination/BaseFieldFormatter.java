@@ -1,7 +1,7 @@
 package com.davioooh.datatablespagination;
 
 /**
- * Basic implementation of the {@code FieldFormatter}.
+ * Basic implementation of the {@link FieldFormatter}.
  *
  * @author David Castelletti
  *
