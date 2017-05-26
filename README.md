@@ -141,3 +141,7 @@ In your page you just need to include fiew lines of JavaScript:
 ```
 
 Notice that you need to set names for table columns matching fields in you server-side entities.
+
+## Appendix
+
+I recently added an abstract implementation of `TableRepository` based on JPA. It is a generic class implementing basic filtering and ordering logic via JPQL. You can find the Gist [here](https://gist.github.com/davioooh/9c3af85af825f19ce7d31c860d579b69).
