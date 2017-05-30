@@ -4,7 +4,7 @@
 
     <groupId>it.davioooh</groupId>
     <artifactId>datatablespagination</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>datatables-pagination</name>
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>22.0</version>
+            <version>20.0</version>
         </dependency>
     </dependencies>
 
