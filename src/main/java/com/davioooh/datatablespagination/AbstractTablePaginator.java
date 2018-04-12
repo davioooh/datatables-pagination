@@ -1,6 +1,8 @@
 package com.davioooh.datatablespagination;
 
 import com.davioooh.datatablespagination.data.TableDataService;
+import com.davioooh.datatablespagination.formatters.BaseFieldFormatter;
+import com.davioooh.datatablespagination.formatters.FieldFormatter;
 import com.google.common.reflect.TypeToken;
 
 import java.lang.reflect.Field;

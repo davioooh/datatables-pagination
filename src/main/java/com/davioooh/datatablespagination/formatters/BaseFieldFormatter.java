@@ -1,4 +1,4 @@
-package com.davioooh.datatablespagination;
+package com.davioooh.datatablespagination.formatters;
 
 /**
  * Basic implementation of the {@link FieldFormatter}.

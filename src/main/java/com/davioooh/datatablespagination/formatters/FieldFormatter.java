@@ -1,4 +1,4 @@
-package com.davioooh.datatablespagination;
+package com.davioooh.datatablespagination.formatters;
 
 /**
  * Used to provide a custom representation for a table field value.
