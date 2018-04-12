@@ -1,6 +1,6 @@
 package com.davioooh.datatablespagination;
 
-import com.davioooh.datatablespagination.data.TableRepository;
+import com.davioooh.datatablespagination.data.TableDataService;
 import com.google.common.reflect.TypeToken;
 
 import java.lang.reflect.Field;
@@ -18,24 +18,24 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 
 	private static final FieldFormatter BASE_FORMATTER = new BaseFieldFormatter();
 
-	private TableRepository<T> repository;
+	private TableDataService<T> dataService;
 	private TypeToken<T> entityType;
 	private Map<String, FieldFormatter> fieldFormatters;
 
 	@SuppressWarnings("serial")
-	public AbstractTablePaginator(TableRepository<T> repo) {
-		this.repository = repo;
+	public AbstractTablePaginator(TableDataService<T> dataService) {
+		this.dataService = dataService;
 		this.entityType = new TypeToken<T>(getClass()) {
 		};
-		fieldFormatters = new HashMap<>();
+		this.fieldFormatters = new HashMap<>();
 	}
 
 	@Override
 	public TablePage getPage(PaginationCriteria pCriteria) throws TablePaginationException {
 		TablePage tPage = new TablePage();
 		tPage.setDraw(pCriteria.getDraw());
-		tPage.setRecordsTotal(repository.countTotalEntries());
-		List<T> entries = repository.findPageEntries(pCriteria);
+		tPage.setRecordsTotal(dataService.countTotalEntries());
+		List<T> entries = dataService.findPageEntries(pCriteria);
 		tPage.setRecordsFiltered(entries.size());
 		tPage.setData(formatOutputData(pCriteria.getColumns(), entries));
 		return tPage;
@@ -119,7 +119,7 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 	 * 
 	 * @return the repository,
 	 */
-	protected TableRepository<T> getRepository() {
-		return repository;
+	protected TableDataService<T> getDataService() {
+		return dataService;
 	}
 }
