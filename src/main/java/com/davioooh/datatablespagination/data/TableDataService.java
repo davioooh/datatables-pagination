@@ -1,6 +1,5 @@
 package com.davioooh.datatablespagination.data;
 
-
 import com.davioooh.datatablespagination.PaginationCriteria;
 
 import java.util.List;
@@ -23,8 +22,8 @@ public interface TableDataService<T> {
 	long countTotalEntries() throws TableDataException;
 
 	/**
-	 * Used to get the number of total filtered result according to provided
-	 * search criteria declared in {@code PaginationCriteria}}
+	 * Used to get the number of total filtered result according to provided search
+	 * criteria declared in {@code PaginationCriteria}}
 	 * 
 	 * @param paginationCriteria
 	 *            pagination criteria.
@@ -35,14 +34,14 @@ public interface TableDataService<T> {
 
 	/**
 	 * Used to select and filter the entries for a single page. It provides the
-	 * entries filtered by search keys and sorted by ordering criteria declared
-	 * in {@code PaginationCriteria}}
+	 * entries filtered by search keys and sorted by ordering criteria declared in
+	 * {@code PaginationCriteria}}
 	 * 
 	 * @param paginationCriteria
 	 *            pagination criteria.
 	 * @return filter and ordered entities.
 	 * @throws TableDataException
 	 */
-	List<T> findPageEntries(PaginationCriteria paginationCriteria) throws TableDataException;
+	List<T> getPageEntries(PaginationCriteria paginationCriteria) throws TableDataException;
 
 }

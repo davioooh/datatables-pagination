@@ -1,12 +1,16 @@
 package com.davioooh.datatablespagination;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.davioooh.datatablespagination.data.TableDataService;
 import com.davioooh.datatablespagination.formatters.BaseFieldFormatter;
 import com.davioooh.datatablespagination.formatters.FieldFormatter;
 import com.google.common.reflect.TypeToken;
-
-import java.lang.reflect.Field;
-import java.util.*;
 
 /**
  * Abstract and generic implementation of {@link TablePaginator}. Provides basic
@@ -33,14 +37,14 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 	}
 
 	@Override
-	public TablePage getPage(PaginationCriteria pCriteria) throws TablePaginationException {
-		TablePage tPage = new TablePage();
-		tPage.setDraw(pCriteria.getDraw());
-		tPage.setRecordsTotal(dataService.countTotalEntries());
-		List<T> entries = dataService.findPageEntries(pCriteria);
-		tPage.setRecordsFiltered(entries.size());
-		tPage.setData(formatOutputData(pCriteria.getColumns(), entries));
-		return tPage;
+	public TablePage getPage(PaginationCriteria paginationCriteria) throws TablePaginationException {
+		TablePage tablePage = new TablePage();
+		tablePage.setDraw(paginationCriteria.getDraw());
+		tablePage.setRecordsTotal(dataService.countTotalEntries());
+		List<T> entries = dataService.getPageEntries(paginationCriteria);
+		tablePage.setRecordsFiltered(entries.size());
+		tablePage.setData(formatOutputData(paginationCriteria.getColumns(), entries));
+		return tablePage;
 	}
 
 	public void setFieldFormatter(String field, FieldFormatter formatter) {
@@ -51,20 +55,20 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 		return fieldFormatters.get(field);
 	}
 
-	//
-
 	/**
 	 * Converts retrieved data in plain tabular format.
 	 * 
-	 * @param columns columns declared in pagination criteria.
-	 * @param data retrieved data.
+	 * @param columns
+	 *            columns declared in pagination criteria.
+	 * @param data
+	 *            retrieved data.
 	 * @return data as a list of maps.
 	 * @throws TablePaginationException
 	 */
-	protected List<Map<String, String>> formatOutputData(List<PaginationCriteria.Column> columns, List<T> data)
+	protected List<Map<String, String>> formatOutputData(List<Column> columns, List<T> data)
 			throws TablePaginationException {
 		List<Field> fields = new ArrayList<>();
-		for (PaginationCriteria.Column col : columns) {
+		for (Column col : columns) {
 			try {
 				fields.add(getDeclaredField(col.getData()));
 			} catch (Exception e) {
@@ -78,7 +82,8 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 				try {
 					field.setAccessible(true);
 					FieldFormatter f = fieldFormatters.containsKey(field.getName())
-							? fieldFormatters.get(field.getName()) : BASE_FORMATTER;
+							? fieldFormatters.get(field.getName())
+							: BASE_FORMATTER;
 					recordVals.put(field.getName(), f.format(field.get(o)));
 				} catch (Exception e) {
 					throw new TablePaginationException("Error generating output data", e);
@@ -91,7 +96,9 @@ public abstract class AbstractTablePaginator<T> implements TablePaginator {
 
 	/**
 	 * Uses reflection to extract required values from objects.
-	 * @param field name of the object field.
+	 * 
+	 * @param field
+	 *            name of the object field.
 	 * @return the declared field as {@code Field}.
 	 * @throws NoSuchFieldException
 	 * @throws SecurityException
