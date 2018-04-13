@@ -1,20 +1,22 @@
 package com.davioooh.datatablespagination.data;
 
-import com.davioooh.datatablespagination.PaginationCriteria;
+import com.davioooh.datatablespagination.model.PaginationCriteria;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * This interface is used to retrieve data to paginate. Classes implementing
- * {@link TableDataService} should also implement filter and ordering logic.
+ * This interface defines API to fetch data to be paginated. Classes
+ * implementing {@link TableDataService} should also implement filter and
+ * ordering logic.
  *
  * @author David Castelletti
  *
  */
-public interface TableDataService<T> {
+public interface TableDataService {
 
 	/**
-	 * Used to get the total count of the entries before filtering.
+	 * Used to get the total count of the entries (before filtering).
 	 * 
 	 * @return the total count of the entries.
 	 * @throws TableDataException
@@ -33,15 +35,14 @@ public interface TableDataService<T> {
 	long countFilteredEntries(PaginationCriteria paginationCriteria) throws TableDataException;
 
 	/**
-	 * Used to select and filter the entries for a single page. It provides the
-	 * entries filtered by search keys and sorted by ordering criteria declared in
-	 * {@code PaginationCriteria}}
+	 * Returns entries for a table page. It should filter entries by search keys and
+	 * sort them by ordering criteria declared in {@code PaginationCriteria}}
 	 * 
 	 * @param paginationCriteria
 	 *            pagination criteria.
 	 * @return filter and ordered entities.
 	 * @throws TableDataException
 	 */
-	List<T> getPageEntries(PaginationCriteria paginationCriteria) throws TableDataException;
+	List<Map<String, String>> getPageEntries(PaginationCriteria paginationCriteria) throws TableDataException;
 
 }
