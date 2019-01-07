@@ -8,8 +8,7 @@ import com.davioooh.datatablespagination.model.TablePage;
  * {@link PaginationCriteria}.
  *
  * @author David Castelletti
- *
  */
 public interface TablePaginator {
-	TablePage getPage(PaginationCriteria paginationCriteria);
+    TablePage getPage(PaginationCriteria paginationCriteria);
 }
