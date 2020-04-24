@@ -1,4 +1,4 @@
-package com.davioooh.datatablespagination;
+package com.davioooh.datatablespagination.commons;
 
 public class User {
     private int id;
