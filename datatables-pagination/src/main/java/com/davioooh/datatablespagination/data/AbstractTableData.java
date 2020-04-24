@@ -10,7 +10,11 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractTableData<T> implements TableData {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper;
+
+    public AbstractTableData(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     @Override
     public List<Map<String, String>> getPageEntries(PaginationCriteria paginationCriteria) throws TableDataException {

@@ -2,6 +2,7 @@ package com.davioooh.datatablespagination.data;
 
 import com.davioooh.datatablespagination.User;
 import com.davioooh.datatablespagination.model.request.PaginationCriteria;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -20,7 +21,7 @@ class AbstractTableDataTest {
                     new User(4, "Marco", 23),
                     new User(5, "Jenny", 15));
 
-    private AbstractTableData dataService = new AbstractTableData<User>() {
+    private AbstractTableData dataService = new AbstractTableData<User>(new ObjectMapper()) {
         @Override
         public long countTotalEntries() throws TableDataException {
             return 0;
