@@ -21,15 +21,15 @@ class AbstractTableDataTest {
                     new User(4, "Marco", 23),
                     new User(5, "Jenny", 15));
 
-    private AbstractTableData dataService = new AbstractTableData<User>(new ObjectMapper()) {
+    private AbstractTableData dataServiceStub = new AbstractTableData<User>(new ObjectMapper()) {
         @Override
         public long countTotalEntries() throws TableDataException {
-            return 0;
+            throw new UnsupportedOperationException();
         }
 
         @Override
         public long countFilteredEntries(PaginationCriteria paginationCriteria) throws TableDataException {
-            return 0;
+            throw new UnsupportedOperationException();
         }
 
         @Override
@@ -39,11 +39,12 @@ class AbstractTableDataTest {
     };
 
     @Test
-    void getPageEntries() throws TableDataException {
-        List<Map<String, String>> data = dataService.getPageEntries(null);
+    void shouldReturnPageEntries() throws TableDataException {
+        List<Map<String, String>> data = dataServiceStub.getPageEntries(null);
         assertEquals(5, data.size());
         assertEquals("Lisa", data.get(0).get("name"));
         assertEquals("2", data.get(1).get("id"));
         assertEquals("38", data.get(2).get("age"));
     }
+
 }
