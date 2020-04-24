@@ -1,15 +1,15 @@
 package com.davioooh.datatablespagination;
 
+import com.davioooh.datatablespagination.data.TableData;
 import com.davioooh.datatablespagination.data.TableDataException;
-import com.davioooh.datatablespagination.data.TableDataService;
 import com.davioooh.datatablespagination.model.request.PaginationCriteria;
 import com.davioooh.datatablespagination.model.response.TablePage;
 
 public class SimplePaginator implements TablePaginator {
 
-    private TableDataService dataService;
+    private TableData dataService;
 
-    public SimplePaginator(TableDataService dataService) {
+    public SimplePaginator(TableData dataService) {
         this.dataService = dataService;
     }
 

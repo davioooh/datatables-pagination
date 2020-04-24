@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This interface defines API to fetch data to be paginated. Classes
- * implementing {@link TableDataService} should also implement filter and
+ * This interface defines the API to fetch entries to be paginated. Classes
+ * implementing {@link TableData} should also implement filtering and
  * ordering logic.
  *
  * @author David Castelletti
  */
-public interface TableDataService {
+public interface TableData {
 
     /**
-     * Used to get the total count of the entries (before filtering).
+     * Returns the total count of the table entries (before filtering).
      *
      * @return the total count of the entries.
      * @throws TableDataException
@@ -23,11 +23,11 @@ public interface TableDataService {
     long countTotalEntries() throws TableDataException;
 
     /**
-     * Used to get the number of total filtered result according to provided search
-     * criteria declared in {@code PaginationCriteria}}
+     * Returns the number of total filtered results, according to provided search
+     * criteria in {@code PaginationCriteria}}
      *
      * @param paginationCriteria pagination criteria.
-     * @return the count of filter entries.
+     * @return the count of filtered entries.
      * @throws TableDataException
      */
     long countFilteredEntries(PaginationCriteria paginationCriteria) throws TableDataException;
@@ -37,7 +37,7 @@ public interface TableDataService {
      * sort them by ordering criteria declared in {@code PaginationCriteria}}
      *
      * @param paginationCriteria pagination criteria.
-     * @return filter and ordered entities.
+     * @return filtered and sorted entities for a certain page.
      * @throws TableDataException
      */
     List<Map<String, String>> getPageEntries(PaginationCriteria paginationCriteria) throws TableDataException;
