@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class DataServiceBase<T> implements TableData {
+public abstract class AbstractTableData<T> implements TableData {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 

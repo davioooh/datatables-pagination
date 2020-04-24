@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DataServiceBaseTest {
+class AbstractTableDataTest {
 
     private static final List<User> TEST_DATA =
             Arrays.asList(
@@ -20,7 +20,7 @@ class DataServiceBaseTest {
                     new User(4, "Marco", 23),
                     new User(5, "Jenny", 15));
 
-    private DataServiceBase dataService = new DataServiceBase<User>() {
+    private AbstractTableData dataService = new AbstractTableData<User>() {
         @Override
         public long countTotalEntries() throws TableDataException {
             return 0;
