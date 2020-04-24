@@ -19,7 +19,6 @@ public class SimplePaginator implements TablePaginator {
         try {
             page = generatePage(paginationCriteria);
         } catch (TableDataException tde) {
-            // FIXME log.error("Error generating table page.", tde);
             page.setError("Error generating table page.");
         }
         return page;
