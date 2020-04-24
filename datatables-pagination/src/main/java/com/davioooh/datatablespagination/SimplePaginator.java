@@ -2,8 +2,8 @@ package com.davioooh.datatablespagination;
 
 import com.davioooh.datatablespagination.data.TableDataException;
 import com.davioooh.datatablespagination.data.TableDataService;
-import com.davioooh.datatablespagination.model.PaginationCriteria;
-import com.davioooh.datatablespagination.model.TablePage;
+import com.davioooh.datatablespagination.model.request.PaginationCriteria;
+import com.davioooh.datatablespagination.model.response.TablePage;
 
 public class SimplePaginator implements TablePaginator {
 

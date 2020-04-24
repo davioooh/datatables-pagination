@@ -1,6 +1,6 @@
 package com.davioooh.datatablespagination.data;
 
-import com.davioooh.datatablespagination.model.PaginationCriteria;
+import com.davioooh.datatablespagination.model.request.PaginationCriteria;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;

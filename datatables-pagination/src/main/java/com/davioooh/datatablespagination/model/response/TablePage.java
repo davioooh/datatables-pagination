@@ -1,4 +1,4 @@
-package com.davioooh.datatablespagination.model;
+package com.davioooh.datatablespagination.model.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

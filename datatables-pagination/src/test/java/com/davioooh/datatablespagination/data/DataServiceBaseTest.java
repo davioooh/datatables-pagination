@@ -1,7 +1,7 @@
 package com.davioooh.datatablespagination.data;
 
 import com.davioooh.datatablespagination.User;
-import com.davioooh.datatablespagination.model.PaginationCriteria;
+import com.davioooh.datatablespagination.model.request.PaginationCriteria;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

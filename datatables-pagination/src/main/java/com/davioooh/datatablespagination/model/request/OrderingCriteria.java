@@ -1,4 +1,4 @@
-package com.davioooh.datatablespagination.model;
+package com.davioooh.datatablespagination.model.request;
 
 public class OrderingCriteria {
     public static final String ASC = "asc";
