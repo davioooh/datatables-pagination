@@ -1,5 +1,8 @@
 package com.davioooh.datatablespagination.model.request;
 
+/**
+ * Column's ordering criteria.
+ */
 public class OrderingCriteria {
     public static final String ASC = "asc";
     public static final String DESC = "desc";

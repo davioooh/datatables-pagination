@@ -1,5 +1,8 @@
 package com.davioooh.datatablespagination.model.request;
 
+/**
+ * Search criteria.
+ */
 public class SearchCriteria {
 
     /**

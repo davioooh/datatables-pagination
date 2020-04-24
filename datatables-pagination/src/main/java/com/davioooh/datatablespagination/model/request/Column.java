@@ -1,5 +1,8 @@
 package com.davioooh.datatablespagination.model.request;
 
+/**
+ * Table's column.
+ */
 public class Column {
 
     /**

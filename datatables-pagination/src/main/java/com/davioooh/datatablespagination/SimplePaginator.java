@@ -27,19 +27,10 @@ public class SimplePaginator implements TablePaginator {
 
     protected TablePage generatePage(PaginationCriteria paginationCriteria) throws TableDataException {
         TablePage page = new TablePage();
-
         page.setDraw(paginationCriteria.getDraw());
-        // FIXME log.debug("Draw set...");
-
         page.setRecordsTotal(dataService.countTotalEntries());
-        // FIXME log.debug("RecordsTotal set...");
-
         page.setRecordsFiltered(dataService.countFilteredEntries(paginationCriteria));
-        // FIXME log.debug("RecordsFiltered set...");
-
         page.setData(dataService.getPageEntries(paginationCriteria));
-        // FIXME log.debug("Data set...");
-
         return page;
     }
 

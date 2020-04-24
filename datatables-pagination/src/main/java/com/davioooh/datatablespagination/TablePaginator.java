@@ -4,7 +4,7 @@ import com.davioooh.datatablespagination.model.request.PaginationCriteria;
 import com.davioooh.datatablespagination.model.response.TablePage;
 
 /**
- * The main component, used to generate a {@link TablePage}} according to
+ * The main component, used to generate a {@link TablePage} according to
  * {@link PaginationCriteria}.
  *
  * @author David Castelletti
