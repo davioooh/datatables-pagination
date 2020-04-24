@@ -4,9 +4,7 @@ import com.davioooh.datatablespagination.data.TableDataException;
 import com.davioooh.datatablespagination.data.TableDataService;
 import com.davioooh.datatablespagination.model.PaginationCriteria;
 import com.davioooh.datatablespagination.model.TablePage;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class SimplePaginator implements TablePaginator {
 
     private TableDataService dataService;
@@ -21,7 +19,7 @@ public class SimplePaginator implements TablePaginator {
         try {
             page = generatePage(paginationCriteria);
         } catch (TableDataException tde) {
-            log.error("Error generating table page.", tde);
+            // FIXME log.error("Error generating table page.", tde);
             page.setError("Error generating table page.");
         }
         return page;
@@ -31,17 +29,18 @@ public class SimplePaginator implements TablePaginator {
         TablePage page = new TablePage();
 
         page.setDraw(paginationCriteria.getDraw());
-        log.debug("Draw set...");
+        // FIXME log.debug("Draw set...");
 
         page.setRecordsTotal(dataService.countTotalEntries());
-        log.debug("RecordsTotal set...");
+        // FIXME log.debug("RecordsTotal set...");
 
         page.setRecordsFiltered(dataService.countFilteredEntries(paginationCriteria));
-        log.debug("RecordsFiltered set...");
+        // FIXME log.debug("RecordsFiltered set...");
 
         page.setData(dataService.getPageEntries(paginationCriteria));
-        log.debug("Data set...");
+        // FIXME log.debug("Data set...");
 
         return page;
     }
+
 }

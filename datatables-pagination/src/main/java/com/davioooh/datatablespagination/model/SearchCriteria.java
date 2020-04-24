@@ -1,10 +1,5 @@
 package com.davioooh.datatablespagination.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class SearchCriteria {
 
     /**
@@ -18,5 +13,21 @@ public class SearchCriteria {
      * advanced searching, false otherwise.
      */
     private boolean regex; // not used
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public boolean isRegex() {
+        return regex;
+    }
+
+    public void setRegex(boolean regex) {
+        this.regex = regex;
+    }
 
 }

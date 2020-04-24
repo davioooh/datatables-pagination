@@ -1,8 +1,5 @@
 package com.davioooh.datatablespagination.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
 /**
@@ -13,8 +10,6 @@ import java.util.List;
  *
  * @author David Castelletti
  */
-@Getter
-@Setter
 public class PaginationCriteria {
     /**
      * Draw counter. This is used by DataTables to ensure that the Ajax returns from
@@ -53,5 +48,53 @@ public class PaginationCriteria {
      * Table column's list.
      */
     private List<Column> columns;
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public SearchCriteria getSearch() {
+        return search;
+    }
+
+    public void setSearch(SearchCriteria search) {
+        this.search = search;
+    }
+
+    public List<OrderingCriteria> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<OrderingCriteria> order) {
+        this.order = order;
+    }
+
+    public List<Column> getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List<Column> columns) {
+        this.columns = columns;
+    }
 
 }

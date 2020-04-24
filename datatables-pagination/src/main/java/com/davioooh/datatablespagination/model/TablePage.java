@@ -2,8 +2,6 @@ package com.davioooh.datatablespagination.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +12,6 @@ import java.util.Map;
  *
  * @author David Castelletti
  */
-@Getter
-@Setter
 public class TablePage {
 
     /**
@@ -49,5 +45,45 @@ public class TablePage {
      */
     @JsonInclude(Include.NON_EMPTY)
     private String error;
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    public long getRecordsTotal() {
+        return recordsTotal;
+    }
+
+    public void setRecordsTotal(long recordsTotal) {
+        this.recordsTotal = recordsTotal;
+    }
+
+    public long getRecordsFiltered() {
+        return recordsFiltered;
+    }
+
+    public void setRecordsFiltered(long recordsFiltered) {
+        this.recordsFiltered = recordsFiltered;
+    }
+
+    public List<Map<String, String>> getData() {
+        return data;
+    }
+
+    public void setData(List<Map<String, String>> data) {
+        this.data = data;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
 }

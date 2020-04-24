@@ -1,10 +1,5 @@
 package com.davioooh.datatablespagination.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class OrderingCriteria {
     public static final String ASC = "asc";
     public static final String DESC = "desc";
@@ -20,5 +15,21 @@ public class OrderingCriteria {
      * ascending ordering or descending ordering, respectively.
      */
     private String dir;
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public String getDir() {
+        return dir;
+    }
+
+    public void setDir(String dir) {
+        this.dir = dir;
+    }
 
 }
